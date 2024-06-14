@@ -1,0 +1,46 @@
+Assignment 1: Backprop
+
+Goals of the Assignment:
+ - learn an object oriented deep learning design pattern
+ - implement back-propagation to compute gradients
+ - learn a basic deep learning training loop
+ - learn how to sanity check your gradient with numerical gradients (finite differences)
+ - learn how to do all that in PyTorch
+ - learn about train time validation, model saving, and post-training model usage/eval
+
+Organization of this assignment package:
+ - task: build and train MNIST digit classification models
+ - split into two parts, with sub components:
+      - numpy implementation, you just implement the back-prop
+      - numpy gradient checker, verifies your grad computation is correct
+      - PyTorch implementation, get familiar with how to use PyTorch, calculates the grads for you
+      - PyTorch implementation, how to load a checkpoint and eval the model
+ - skeleton code is provided for both parts
+ - gradients for each layer must be correct in isolation
+    - if I run the gradient checking code on the layer, it MUST be correct
+ - you can choose to do the assignment directly in Python scripts, or through a Python notebook
+ - Python and the dependencies should be installed via conda, environment.yml provided
+ - just submit the completed Python scripts, don't need to include program outputs
+ - we are going to assume everything was run from a CLI or Jupyter notebook
+ - your code must run without additional edits from the marker
+      - if excessive edits are needed to run the code, you may potentially receive a 0
+ - we will be using Moss to check for plagiarism: https://theory.stanford.edu/~aiken/moss/
+
+Conda installation:
+ - install conda: https://docs.conda.io/projects/conda/en/latest/user-guide/install/index.html
+ - we recommend you install miniconda
+ - run to create the conda environment: conda env create --file environment.yml
+ - activate the conda environment with: conda activate eecs6322-a1
+
+Running your code from the CLI:
+ - just run: python MYPYTHONSCRIPT.py
+
+Running your code from the CLI:
+ - just run: Jupyter notebook
+ - if run locally, it should open a web page for you
+ - otherwise, follow the instructions it prints out to connect
+ - see for usage on Jupyter: https://docs.jupyter.org/en/latest/start/index.html
+
+Marking:
+ - Part 1: 13% of final grade 
+ - Part 2: 7% of final grade 
