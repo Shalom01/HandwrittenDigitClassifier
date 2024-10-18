@@ -10,7 +10,7 @@ matplotlib.use('agg')
 from matplotlib import pyplot as plt
 
 # ========================================================================================
-# We provide you with this utility to shuffle and batch your data for you
+# Tool to shuffle and batch data
 # ========================================================================================
 class Simple_batcher:
     '''
@@ -102,15 +102,14 @@ class Layer:
         pass # default, do nothing
 
 # ========================================================================================
-# A simple Linear layer, should include a weight matrix and biases
+# A simple Linear layer - includes a weight matrix and biases
 # Input dimensions: [N,in_size]
 # Output dimensions: [N,out_size]
 #
 # Implementation instructions:
-# Initialize weights with a uniform distribution [-1/sqrt(in_size),1/sqrt(in_size)]
-# Initialize biases to 0
-# Layer should also contain variables for the gradients for the parameters
-# Refer to the comments in the base class to see what needs to be implemented
+# Weights initialized with a uniform distribution [-1/sqrt(in_size),1/sqrt(in_size)]
+# Biases initialized to 0
+# Layer contains variables for the gradients for the parameters
 # ========================================================================================
 class Linear_layer(Layer): #applies the linear transformation
 
@@ -140,9 +139,6 @@ class Linear_layer(Layer): #applies the linear transformation
 
 # ========================================================================================
 # A simple RELU layer, output dimensions same as input dimensions
-#
-# Implementation instructions:
-# Refer to the comments in the base class to see what needs to be implemented
 # ========================================================================================
 class RELU_layer(Layer):
     def __init__(self):
@@ -163,15 +159,8 @@ class RELU_layer(Layer):
 # ========================================================================================
 # A Softmax coss entropy loss layer
 # This is a combination of a softmax layer and a cross entropy layer
-# In theory you can implement these as two layers, but we will implement them as one for numerical reasons
-# HINT: Try and work out the forward and backward by hand, see if any terms cancel out
-# HINT: Try and not compute log(exp(x)), this can lead to NaNs
-# HINT: at the end, you should average the loss across all batches
 # Input dimensions: [N,n_classes]
 # Output dimensions: [] - this is a scalar
-#
-# Implementation instructions:
-# Refer to the comments in the base class to see what needs to be implemented
 # ========================================================================================
 class Softmax_cross_entropy_loss(Layer):
     def __init__(self,n_logit_classes):
@@ -216,9 +205,6 @@ class Softmax_cross_entropy_loss(Layer):
 
 # ========================================================================================
 # The class for the entire network
-#
-# Implementation instructions:
-# Similar to the layer base class definition, see comments on individual methods
 # ========================================================================================
 class Net:
     def __init__(self):
@@ -296,7 +282,7 @@ def compute_accuracy(prediction,gt_logits):
     return acc /len(prediction)
 
 # ========================================================================================
-# Setup for the components we will use
+# Setup: setting hyperparameters, loading the dataset, and intializing the net
 # We will use the MNIST training dataset provided by torch
 # ========================================================================================
 batch_size = 100
@@ -308,7 +294,7 @@ losses = [] # store losses throughout training
 accuracies = [] # store accuracies throughout training
 
 # ========================================================================================
-# Training loop, provided to you
+# Training loop
 # ========================================================================================
 for it in range(1000):
     net.zero_grads() # zero out the gradients
@@ -326,8 +312,8 @@ for it in range(1000):
         print(loss)
 
 # ========================================================================================
-# Post training stuff, plot the stats from training
-# The non-notebook version will save the images
+# Post training stuff - plotting the stats from training
+# Images are saved to the project folder
 # ========================================================================================
 print('Training complete, plotting')
 
