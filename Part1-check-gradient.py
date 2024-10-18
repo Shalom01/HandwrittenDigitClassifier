@@ -134,8 +134,7 @@ for i in range(0, x1.shape[1]):
     # compute numerical grad
     x1_numerical_grad[0, i] = (y2 - y1)/epsilon
     
-# compare the numerical gradient with the analytical gradient
-# you can use np.isclose()
+# compare the numerical gradient with the analytical gradient using np.isclose()
 
 print(x1_analytical_grad)
 print(x1_numerical_grad)
