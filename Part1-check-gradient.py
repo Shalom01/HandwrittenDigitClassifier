@@ -1,10 +1,9 @@
 # ========================================================================================
-# For part 1 I also want you to implement a checker that can check your analytical gradients
-# with numerically computed ones.
+# A checker that compares analytical gradients with numerically computed ones.
 # This method is based on finite differences.
 # See this for a general understanding: https://en.wikipedia.org/wiki/Finite_difference
 #
-# FOR SUBMISSION, I want to see this script test >>>>>Softmax_cross_entropy_loss<<<<<<
+# This script tests >>>>>Softmax_cross_entropy_loss<<<<<<
 # You can also use this script to test other layers you implement but you may also need to
 # to perform modifications to compute gradients for tensors other than the inputs
 # or if the layer has additional inputs.
@@ -13,7 +12,8 @@
 import numpy as np
 
 # ========================================================================================
-# This is a base class to base your layers on, this includes methods used for backprop and optimization
+# This is a base class for layers.
+# It includes methods used for backprop and optimization.
 # ========================================================================================
 class Layer:
     '''
@@ -52,8 +52,8 @@ class Layer:
 
 
 # ========================================================================================
-# Define your layer here
-# Just copy your implementation for Softmax_cross_entropy_loss here
+# Define your layer here.
+# You can copy it from your implementation.
 # ========================================================================================
 class Softmax_cross_entropy_loss(Layer):
     def __init__(self,n_logit_classes):
@@ -117,12 +117,11 @@ print(y1_ctx)
 x1_analytical_grad = layer.backward(y1_ctx)
 
 # ========================================================================================
-# Compute the numerical gradient in respect to the output sum
-# This should be a loop though all the elements of the input tensor
-# that perturbes each element seperately.
+# Computes the numerical gradient with respect to the output sum.
+# Loops though all the elements of the input tensor
+# that perturb each element seperately.
 # ========================================================================================
 
-# you can store stuff here i guess
 x1_numerical_grad = np.zeros(x1_shape)
 
 for i in range(0, x1.shape[1]):
