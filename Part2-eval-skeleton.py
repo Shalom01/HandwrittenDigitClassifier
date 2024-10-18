@@ -7,7 +7,7 @@ import pudb
 import numpy as np
 
 # ============================================================
-# define your network here, just copy the definition you made in the traing script
+# define your network here: copy definition in training script.
 # ============================================================
 class Net(torch.nn.Module):
     def __init__(self):
@@ -44,7 +44,7 @@ class Net(torch.nn.Module):
         return x
 
 # ============================================================
-# just copy the definition you made in the traing script
+# just copy the definition you made in the training script
 # ============================================================
 def compute_accuracy(prediction,gt_logits):
     acc = 0
