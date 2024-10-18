@@ -1,9 +1,9 @@
 PROJECT: build and train MNIST digit classification models
  - split into two parts, with sub components:
-      - numpy implementation: backprop implemented strictly using the numpy library
-      - numpy gradient checker: verifies the grad computation is correct
-      - PyTorch implementation: automatically calculating the gradients
-      - PyTorch checker: loading a checkpoint and evaluating the model
+      - numpy implementation (Part1-skeleton.py): a trainable NN implemented strictly using the numpy library.  
+      - numpy gradient checker (Part1-check-gradient.py): verifies the grad computation is correct.
+      - PyTorch implementation (Part2-train-skeleton.py): a trainable NN implemented using pytorch.
+      - PyTorch checker (Part2-eval-skeleton.py): loads a checkpoint and evaluates the PyTorch NN.
  - Python and the dependencies should be installed via conda, environment.yml provided
 
 Conda installation:
