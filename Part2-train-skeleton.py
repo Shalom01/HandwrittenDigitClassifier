@@ -6,15 +6,15 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 # ==================================================================
-# Contruct our network
-# We inherit from torch.nn.Module, this allows it to keep track of parameters of member variables
+# Contruct network Net.
+# Net inherits from torch.nn.Module, this allows it to keep track of parameters of member variables.
 # There are multiple ways to add layers to your network:
 #   1) each layer is it's down member variable
 #   2) each layer is contained in a torch.nn.Sequential
 #   3) each layer is contained in a torch.nn.ModuleList
 # Note: Do NOT place layers in a list, doing so will prevent their parameters from being found
 # Note: for torch.nn.Modules, you can call forward() via the __call__() override
-# IMPORTANT: For this model I want you to implement using: Conv2d, MaxPool2d, and ReLU, maybe Linear
+# IMPORTANT: For this we implement using: Conv2d, MaxPool2d, and ReLU, and Linear layers.
 #
 # Take a look at:
 # https://pytorch.org/docs/stable/generated/torch.nn.Module.html
@@ -61,9 +61,7 @@ class Net(torch.nn.Module):
         return x
     
 # ==================================================================
-# Copy your compute accuracy function from Part1 here
-# I want you to use that because it uses Numpy, we will learn to convert torch->numpy tensors
-# IMPORTANT: Numpy only, I DON'T WANT TO SEE PYTORCH HERE
+# Copied compute accuracy function from Part1 here.
 # ==================================================================
 def compute_accuracy(prediction,gt_logits):
     acc = 0
@@ -95,9 +93,9 @@ dataloader_val = torch.utils.data.DataLoader(dataset_val,batch_size=batch_size,s
 # build network
 net = Net()
 
-# build loss function, use a CrossEntropyLoss
+# build loss function using CrossEntropyLoss
 # take a look at: https://pytorch.org/docs/stable/generated/torch.nn.CrossEntropyLoss.html
-loss_fn = torch.nn.CrossEntropyLoss() #TO DO: set params
+loss_fn = torch.nn.CrossEntropyLoss()
 
 # build optimizer, and set learning rate
 # unlike Part1 we will have an optimizer object manage parameter updates
@@ -132,7 +130,7 @@ if __name__ == '__main__':
             # compute the loss
             loss = torch.nn.functional.cross_entropy(pred, label) #SHALOM: I am using cross-entropy loss here
 
-            # compute the accuracy, we will have to convert to numpy tensorfs first
+            # compute the accuracy, we will have to convert to numpy tensors first
             # .cpu() moves the tensor to the device, here it is pointless because it is already cpu, but must be done when we use gpus
             # .detach() tells torch that gradients will not flow through this operation, MUST be done before we get the numpy array
             # .numpy() gets the numpy array
@@ -141,7 +139,7 @@ if __name__ == '__main__':
             # compute gradient in respect to the loss. Take a look here: https://pytorch.org/tutorials/beginner/blitz/autograd_tutorial.html
             loss.backward()
 
-            # take a step of SGD, call this through the optimizer!
+            # take a step of SGD by calling optimizer.
             # take a look here: https://pytorch.org/docs/stable/optim.html
             optimizer.step()
 
